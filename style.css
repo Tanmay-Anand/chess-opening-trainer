@@ -350,14 +350,21 @@ button:disabled {
 @media (max-width: 768px) {
   .board-wrapper {
     max-width: 100%;
-    grid-template-columns: 20px auto;
+    grid-template-columns: 0px auto;
     grid-template-rows: auto 20px;
   }
 
   .ranks div, .files div {
     font-size: 0.8rem;
   }
-
+  .container{
+    padding: 20px;
+  }
+  .chessboard {
+    scale: 0.9;
+        max-width: 100%;
+        overflow: visible;
+  }
   .button-icon {
     bottom: 4vh;
     right: 4vw;
