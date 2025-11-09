@@ -5,15 +5,15 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: radial-gradient(
-  130% 130% at 0% 100%,
-  #0d1b2a 0%,
-  #1b263b 25%,
-  #415a77 55%,
-  #778da9 80%,
-  #e0e1dd 100%
-);
+    130% 130% at 0% 100%,
+    #0d1b2a 0%,
+    #1b263b 25%,
+    #415a77 55%,
+    #778da9 80%,
+    #e0e1dd 100%
+  );
 
   min-height: 100vh;
   display: flex;
@@ -26,7 +26,7 @@ body {
   background: rgba(255, 255, 255, 0.822);
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   max-width: 900px;
   width: 100%;
@@ -48,11 +48,11 @@ h1 {
 }
 
 #startBtn {
-    background: black
-    
+  background: black;
 }
 
-select, button {
+select,
+button {
   padding: 12px 20px;
   font-size: 16px;
   border: 1.5px solid #000000;
@@ -60,7 +60,6 @@ select, button {
   cursor: pointer;
   transition: all 0.3s;
 }
-
 
 select {
   flex: 1;
@@ -144,8 +143,13 @@ button:disabled {
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: inset 0 0 0 3px #ff6b6b; }
-  50% { box-shadow: inset 0 0 0 6px #ff6b6b; }
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 3px #ff6b6b;
+  }
+  50% {
+    box-shadow: inset 0 0 0 6px #ff6b6b;
+  }
 }
 
 .square.correct {
@@ -153,8 +157,13 @@ button:disabled {
 }
 
 @keyframes correct-flash {
-  0%, 100% { background: inherit; }
-  50% { background: #4caf50; }
+  0%,
+  100% {
+    background: inherit;
+  }
+  50% {
+    background: #4caf50;
+  }
 }
 
 .info-panel {
@@ -199,7 +208,7 @@ button:disabled {
   padding: 8px;
   margin: 5px 0;
   border-radius: 5px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 .move-item.completed {
@@ -281,13 +290,13 @@ button:disabled {
   grid-column: 2;
 }
 
-/* From Uiverse.io by aguerquin */ 
+/* From Uiverse.io by aguerquin */
 .button-icon {
-  font-family: 'Montserrat', sans-serif;
-  z-index: 10; 
-  position: fixed; 
-  bottom: 3vh;    
-  right: 3vw; 
+  font-family: "Montserrat", sans-serif;
+  z-index: 10;
+  position: fixed;
+  bottom: 3vh;
+  right: 3vw;
   display: flex;
   border: 3px #ffffff solid;
   width: fit-content;
@@ -344,27 +353,46 @@ button:disabled {
   background: #222229;
   color: #fff;
   transform: translateZ(13.5px);
-  
 }
 
+/* === MODIFIED MEDIA QUERY === */
 @media (max-width: 768px) {
+  body {
+    padding: 0;
+    align-items: flex-start;
+  }
   .board-wrapper {
     max-width: 100%;
-    grid-template-columns: 0px auto;
-    grid-template-rows: auto 20px;
+    /* FIX: Give space for ranks (20px) and auto-height for files */
+    grid-template-columns: 20px auto;
+    grid-template-rows: auto auto;
   }
 
-  .ranks div, .files div {
+  .ranks div,
+  .files div {
     font-size: 0.8rem;
   }
-  .container{
-    padding: 20px;
+
+  /* FIX: Added to reduce top margin on mobile */
+  .files {
+    margin-top: 3px;
   }
-  .chessboard {
+
+  .container {
+    /* FIX: Adjust padding and make container full-screen */
+    padding: 15px; /* Was 20px */
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* This rule was correctly commented out as it caused gaps */
+  /* .chessboard {
     scale: 0.9;
         max-width: 100%;
         overflow: visible;
-  }
+  } */
+
   .button-icon {
     bottom: 4vh;
     right: 4vw;
